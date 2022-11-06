@@ -10,10 +10,21 @@ function makePDOConnection(array $config): PDO
     );
 }
 
-function getUserByEmail(PDO $pdo, $email): array
+function getUserByEmail(PDO $pdo, string $email): array
 {
     $sql = 'SELECT * FROM `users` WHERE `email` = :email';
     $statement = $pdo->prepare($sql);
     $statement->execute(['email' => $email]);
     return $statement->fetchAll();
+}
+
+function addUser(PDO $pdo, string $email, string $password, string $role): void
+{
+    $sql = 'INSERT INTO `users` (`email`, `password`, `role`) VALUES (:email, :password, :role)';
+    $statement = $pdo->prepare($sql);
+    $statement->execute([
+        'email' => $email,
+        'password' => $password,
+        'role' => $role
+    ]);
 }
