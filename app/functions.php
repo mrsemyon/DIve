@@ -39,3 +39,8 @@ function displayFlashMessage($key)
     echo $_SESSION[$key];
     unset($_SESSION[$key]);
 }
+
+function redirect($path)
+{
+    header("Location: " . $path);
+}
