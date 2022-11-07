@@ -28,3 +28,8 @@ function addUser(PDO $pdo, string $email, string $password, string $role): void
         'role' => $role
     ]);
 }
+
+function setFlashMessage($key, $message)
+{
+    $_SESSION[$key] = $message;
+}
