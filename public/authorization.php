@@ -1,3 +1,12 @@
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
+
+if (isset($_SESSION['email'])) {
+    setFlashMessage('success', 'Вы уже авторизованы.');
+    redirect("/public/users.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
