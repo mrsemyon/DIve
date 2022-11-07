@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
 
 if (isset($_SESSION['email'])) {
     setFlashMessage('success', 'Вы уже авторизованы.');
@@ -44,9 +44,13 @@ if (isset($_SESSION['email'])) {
             </a>
         </div>
         <div class="card p-4 border-top-left-radius-0 border-top-right-radius-0">
-            <div class="alert alert-success">
-                Регистрация успешна
-            </div>
+            <?php if (isset($_SESSION['danger'])) : ?>
+                <div class="alert alert-danger text-dark" role="alert">
+                    <?php
+                    displayFlashMessage('danger');
+                    ?>
+                </div>
+            <?php endif; ?>
             <form action="/controllers/authorization.php" method="POST">
                 <div class="form-group">
                     <label class="form-label" for="username">Email</label>
