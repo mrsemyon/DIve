@@ -10,12 +10,12 @@ function makePDOConnection(array $config): PDO
     );
 }
 
-function getUserByEmail(PDO $pdo, string $email): array
+function getUserByEmail(PDO $pdo, string $email)
 {
     $sql = 'SELECT * FROM `users` WHERE `email` = :email';
     $statement = $pdo->prepare($sql);
     $statement->execute(['email' => $email]);
-    return $statement->fetchAll();
+    return $statement->fetch();
 }
 
 function addUser(PDO $pdo, string $email, string $password, string $role): void
