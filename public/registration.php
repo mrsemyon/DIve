@@ -2,7 +2,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
 
 if (isset($_SESSION['email'])) {
-    setFlashMessage('success', 'Вы уже зарегистрированы!');
+    setFlashMessage('success', 'Вы уже зарегистрированы.');
     redirect("/public/users.php");
     exit;
 }
@@ -70,9 +70,13 @@ if (isset($_SESSION['email'])) {
                             </div>
                             <div class="col-xl-6 ml-auto mr-auto">
                                 <div class="card p-4 rounded-plus bg-faded">
-                                    <div class="alert alert-danger text-dark" role="alert">
-                                        <strong>Уведомление!</strong> Этот эл. адрес уже занят другим пользователем.
-                                    </div>
+                                    <?php if (isset($_SESSION['danger'])) : ?>
+                                        <div class="alert alert-danger text-dark" role="alert">
+                                            <?php
+                                            displayFlashMessage('danger');
+                                            ?>
+                                        </div>
+                                    <?php endif; ?>
                                     <form id="js-login" novalidate="" action="/controllers/registration.php" method="POST">
                                         <div class="form-group">
                                             <label class="form-label" for="emailverify">Email</label>
