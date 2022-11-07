@@ -1,3 +1,12 @@
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
+
+if (isset($_SESSION['email'])) {
+    setFlashMessage('success', 'Вы уже зарегистрированы!');
+    redirect("/public/users.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +49,7 @@
                         <span class="text-white opacity-50 ml-auto mr-2 hidden-sm-down">
                             Уже зарегистрированы?
                         </span>
-                        <a href="page_login.html" class="btn-link text-white ml-auto ml-sm-0">
+                        <a href="/public/authorization.php" class="btn-link text-white ml-auto ml-sm-0">
                             Войти
                         </a>
                     </div>
