@@ -1,4 +1,14 @@
 <?php
+require $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
+
+if ($_SESSION['role'] != 'admin') {
+    setFlashMessage('danger', 'У Вас недостаточно прав');
+    redirect("/public/users.php");
+    exit;
+}
+
+$title = "Добавить пользователя";
+
 require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
 ?>
 <div class="subheader">
