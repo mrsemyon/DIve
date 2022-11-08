@@ -27,6 +27,11 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
         ?>
     </div>
 <?php endif; ?>
+<div class="subheader">
+    <h1 class="subheader-title">
+        <i class='subheader-icon fal fa-users'></i>Список пользователей
+    </h1>
+</div>
 <div class="row">
     <div class="col-xl-12">
         <a class="btn btn-success" href="/public/create.php">Добавить</a>
