@@ -38,9 +38,20 @@ $users = getAllUsers($pdo);
     </nav>
 
     <main id="js-page-content" role="main" class="page-content mt-3">
-        <div class="alert alert-success">
-            Профиль успешно обновлен.
-        </div>
+        <?php if (isset($_SESSION['danger'])) : ?>
+            <div class="alert alert-danger text-dark" role="alert">
+                <?php
+                displayFlashMessage('danger');
+                ?>
+            </div>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-success text-dark" role="alert">
+                <?php
+                displayFlashMessage('success');
+                ?>
+            </div>
+        <?php endif; ?>
         <div class="subheader">
             <h1 class="subheader-title">
                 <i class='subheader-icon fal fa-users'></i> Список пользователей
