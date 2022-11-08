@@ -44,3 +44,10 @@ function redirect($path)
 {
     header("Location: " . $path);
 }
+
+function getAllUsers(PDO $pdo)
+{
+    $sql = 'SELECT * FROM `users`';
+    $statement = $pdo->query($sql);
+    return $statement->fetchAll();
+}
