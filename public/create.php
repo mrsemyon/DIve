@@ -23,7 +23,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
         <i class='subheader-icon fal fa-plus-circle'></i> Добавить пользователя
     </h1>
 </div>
-<form action="/controllers/create.php" method="POST">
+<form action="/controllers/create.php" method="POST" enctype="multipart/form-data">
     <div class="row">
         <input name="role" type="hidden" value="user">
         <div class="col-xl-6">
