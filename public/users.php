@@ -111,10 +111,10 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
                             <a href="<?= $user['vk'] ?>" class="mr-2 fs-xxl" style="color:#4680C2">
                                 <i class="fab fa-vk"></i>
                             </a>
-                            <a href="<?= $user['telegram'] ?>" class="mr-2 fs-xxl" style="color:#38A1F3">
+                            <a href="<?= $user['tg'] ?>" class="mr-2 fs-xxl" style="color:#38A1F3">
                                 <i class="fab fa-telegram"></i>
                             </a>
-                            <a href="<?= $user['instagram'] ?>" class="mr-2 fs-xxl" style="color:#E1306C">
+                            <a href="<?= $user['ig'] ?>" class="mr-2 fs-xxl" style="color:#E1306C">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </div>

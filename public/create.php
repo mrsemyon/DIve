@@ -136,7 +136,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
                                             </span>
                                         </span>
                                     </div>
-                                    <input name="telegram" type="text" class="form-control border-left-0 bg-transparent pl-0">
+                                    <input name="tg" type="text" class="form-control border-left-0 bg-transparent pl-0">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -150,7 +150,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
                                             </span>
                                         </span>
                                     </div>
-                                    <input name="instagram" type="text" class="form-control border-left-0 bg-transparent pl-0">
+                                    <input name="ig" type="text" class="form-control border-left-0 bg-transparent pl-0">
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3 d-flex flex-row-reverse">
