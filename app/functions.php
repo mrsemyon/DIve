@@ -86,3 +86,15 @@ function setUserPhoto($pdo, $id, $photo)
     $statement = $pdo->prepare($sql);
     $statement->execute(['id' => $id, 'photo' => $photo]);
 }
+
+function setSocialLinks($pdo, $id, $vk, $tg, $ig)
+{
+    $sql = 'UPDATE `users` SET `vk` = :vk, `tg` = :tg, `ig` = :ig WHERE id = :id';
+    $statement = $pdo->prepare($sql);
+    $statement->execute([
+        'id' => $id,
+        'vk' => $vk,
+        'tg' => $tg,
+        'ig' => $ig
+    ]);
+}
