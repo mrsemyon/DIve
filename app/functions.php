@@ -18,7 +18,7 @@ function getUserByEmail(PDO $pdo, string $email)
     return $statement->fetch();
 }
 
-function addUser(PDO $pdo, string $email, string $password, string $role): void
+function addUser(PDO $pdo, string $email, string $password, string $role)
 {
     $sql = 'INSERT INTO `users` (`email`, `password`, `role`) VALUES (:email, :password, :role)';
     $statement = $pdo->prepare($sql);
@@ -27,6 +27,7 @@ function addUser(PDO $pdo, string $email, string $password, string $role): void
         'password' => $password,
         'role' => $role
     ]);
+    return $pdo->lastInsertId();
 }
 
 function setFlashMessage($key, $message)
@@ -57,4 +58,17 @@ function prepareUserPhoto($file)
     $photo = uniqid() . '.' . pathinfo($file['name'], PATHINFO_EXTENSION);
     move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/upload/' . $photo);
     return $photo;
+}
+
+function editUser($pdo, $id, $name, $position, $phone, $address)
+{
+    $sql = 'UPDATE `users` SET `name` = :name, `position` = :position, `phone` = :phone, `address` = :address WHERE id = :id';
+    $statement = $pdo->prepare($sql);
+    $statement->execute([
+        'id' => $id,
+        'name' => $name,
+        'position' => $position,
+        'phone' => $phone,
+        'address' => $address
+    ]);
 }
