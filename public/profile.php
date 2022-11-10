@@ -7,6 +7,11 @@ if (!isset($_SESSION['email'])) {
     exit;
 }
 
+if (empty($_GET)) {
+    setFlashMessage('danger', 'Не выбран пользователь.');
+    redirect("/public/users.php");
+    exit;
+}
 require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
 ?>
 <div class="subheader">
