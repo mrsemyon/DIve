@@ -98,3 +98,11 @@ function setSocialLinks($pdo, $id, $vk, $tg, $ig)
         'ig' => $ig
     ]);
 }
+
+function getUserById(PDO $pdo, string $id)
+{
+    $sql = 'SELECT * FROM `users` WHERE `id` = :id';
+    $statement = $pdo->prepare($sql);
+    $statement->execute(['id' => $id]);
+    return $statement->fetch();
+}
