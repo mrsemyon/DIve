@@ -68,7 +68,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
                                 <?php } ?>
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/public/edit/?id=<?= $user['id'] ?>">
+                                <a class="dropdown-item" href="/public/edit.php?id=<?= $user['id'] ?>">
                                     <i class="fa fa-edit"></i>
                                     Редактировать</a>
                                 <a class="dropdown-item" href="/public/security/?id=<?= $user['id'] ?>">

@@ -1,4 +1,10 @@
 <?php
+require $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
+
+$user = getUserById($pdo, $_GET['id']);
+
+$title = 'Редактировать пользователя';
+
 require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
 ?>
 <div class="subheader">
@@ -6,7 +12,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
         <i class='subheader-icon fal fa-plus-circle'></i> Редактировать
     </h1>
 </div>
-<form action="">
+<form action="/controllers/edit.php?id=<?= $user['id'] ?>" method="POST">
     <div class="row">
         <div class="col-xl-6">
             <div id="panel-1" class="panel">
@@ -18,25 +24,25 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
                         <!-- username -->
                         <div class="form-group">
                             <label class="form-label" for="simpleinput">Имя</label>
-                            <input type="text" id="simpleinput" class="form-control" value="Иван иванов">
+                            <input name="name" type="text" id="simpleinput" class="form-control" value="<?= $user['name'] ?>">
                         </div>
 
                         <!-- title -->
                         <div class="form-group">
                             <label class="form-label" for="simpleinput">Место работы</label>
-                            <input type="text" id="simpleinput" class="form-control" value="Marlin Веб-разработчик">
+                            <input name="position" type="text" id="simpleinput" class="form-control" value="<?= $user['position'] ?>">
                         </div>
 
                         <!-- tel -->
                         <div class="form-group">
                             <label class="form-label" for="simpleinput">Номер телефона</label>
-                            <input type="text" id="simpleinput" class="form-control" value="8 888 8888 88">
+                            <input name="phone" type="text" id="simpleinput" class="form-control" value="<?= $user['phone'] ?>">
                         </div>
 
                         <!-- address -->
                         <div class="form-group">
                             <label class="form-label" for="simpleinput">Адрес</label>
-                            <input type="text" id="simpleinput" class="form-control" value="Восточные Королевства, Штормград">
+                            <input name="address" type="text" id="simpleinput" class="form-control" value="<?= $user['address'] ?>">
                         </div>
                         <div class="col-md-12 mt-3 d-flex flex-row-reverse">
                             <button class="btn btn-warning">Редактировать</button>
