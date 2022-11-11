@@ -13,6 +13,13 @@ $title = 'Редактировать авторизационные данные
 
 require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
 ?>
+<?php if (isset($_SESSION['danger'])) : ?>
+    <div class="alert alert-danger text-dark" role="alert">
+        <?php
+        displayFlashMessage('danger');
+        ?>
+    </div>
+<?php endif; ?>
 <div class="subheader">
     <h1 class="subheader-title">
         <i class='subheader-icon fal fa-lock'></i> Безопасность
