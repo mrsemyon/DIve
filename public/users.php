@@ -71,7 +71,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
                                 <a class="dropdown-item" href="/public/edit.php?id=<?= $user['id'] ?>">
                                     <i class="fa fa-edit"></i>
                                     Редактировать</a>
-                                <a class="dropdown-item" href="/public/security/?id=<?= $user['id'] ?>">
+                                <a class="dropdown-item" href="/public/credentials.php?id=<?= $user['id'] ?>">
                                     <i class="fa fa-lock"></i>
                                     Безопасность</a>
                                 <a class="dropdown-item" href="/public/status/?id=<?= $user['id'] ?>">
