@@ -77,7 +77,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
                                 <a class="dropdown-item" href="/public/status.php?id=<?= $user['id'] ?>">
                                     <i class="fa fa-sun"></i>
                                     Установить статус</a>
-                                <a class="dropdown-item" href="/public/media/?id=<?= $user['id'] ?>">
+                                <a class="dropdown-item" href="/public/media.php?id=<?= $user['id'] ?>">
                                     <i class="fa fa-camera"></i>
                                     Загрузить аватар
                                 </a>
