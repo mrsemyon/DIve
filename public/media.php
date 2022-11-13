@@ -19,7 +19,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
             </h1>
 
         </div>
-        <form action="">
+        <form action="/controllers/media.php?id=<?=$user['id']?>" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-xl-6">
                     <div id="panel-1" class="panel">
@@ -31,13 +31,10 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
                                 <div class="form-group">
                                     <img src="/upload/<?=$user['photo']?>" alt="" class="img-responsive rounded-circle" width="200">
                                 </div>
-
                                 <div class="form-group">
                                     <label class="form-label" for="example-fileinput">Выберите аватар</label>
-                                    <input type="file" id="example-fileinput" class="form-control-file">
+                                    <input name="photo" type="file" id="example-fileinput" class="form-control-file">
                                 </div>
-
-
                                 <div class="col-md-12 mt-3 d-flex flex-row-reverse">
                                     <button class="btn btn-warning">Загрузить</button>
                                 </div>
