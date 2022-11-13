@@ -29,7 +29,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/public/templates/header.php';
                             </div>
                             <div class="panel-content">
                                 <div class="form-group">
-                                    <img src="img/demo/authors/josh.png" alt="" class="img-responsive" width="200">
+                                    <img src="/upload/<?=$user['photo']?>" alt="" class="img-responsive rounded-circle" width="200">
                                 </div>
 
                                 <div class="form-group">
