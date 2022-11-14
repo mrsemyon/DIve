@@ -30,18 +30,18 @@ function addUser(PDO $pdo, string $email, string $password, string $role)
     return $pdo->lastInsertId();
 }
 
-function setFlashMessage($key, $message)
+function setFlashMessage(string $key, string $message): void
 {
     $_SESSION[$key] = $message;
 }
 
-function displayFlashMessage($key)
+function displayFlashMessage(string $key): void
 {
     echo $_SESSION[$key];
     unset($_SESSION[$key]);
 }
 
-function redirect($path)
+function redirect(string $path): void
 {
     header("Location: " . $path);
 }
@@ -53,14 +53,14 @@ function getAllUsers(PDO $pdo)
     return $statement->fetchAll();
 }
 
-function prepareUserPhoto($file)
+function prepareUserPhoto(string $file)
 {
     $photo = uniqid() . '.' . pathinfo($file['name'], PATHINFO_EXTENSION);
     move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/upload/' . $photo);
     return $photo;
 }
 
-function editUser($pdo, $id, $name, $position, $phone, $address)
+function editUser(PDO $pdo, string $id, string $name, string $position, string $phone, string $address): void
 {
     $sql = 'UPDATE `users` SET `name` = :name, `position` = :position, `phone` = :phone, `address` = :address WHERE id = :id';
     $statement = $pdo->prepare($sql);
@@ -73,21 +73,21 @@ function editUser($pdo, $id, $name, $position, $phone, $address)
     ]);
 }
 
-function setUserStatus($pdo, $id, $status)
+function setUserStatus(PDO $pdo, string $id, string $status): void
 {
     $sql = 'UPDATE `users` SET `status` = :status WHERE id = :id';
     $statement = $pdo->prepare($sql);
     $statement->execute(['id' => $id, 'status' => $status]);
 }
 
-function setUserPhoto($pdo, $id, $photo)
+function setUserPhoto(PDO $pdo, string $id, string $photo): void
 {
     $sql = 'UPDATE `users` SET `photo` = :photo WHERE id = :id';
     $statement = $pdo->prepare($sql);
     $statement->execute(['id' => $id, 'photo' => $photo]);
 }
 
-function setSocialLinks($pdo, $id, $vk, $tg, $ig)
+function setSocialLinks(PDO $pdo, string $id, string $vk, string $tg, string $ig): void
 {
     $sql = 'UPDATE `users` SET `vk` = :vk, `tg` = :tg, `ig` = :ig WHERE id = :id';
     $statement = $pdo->prepare($sql);
@@ -107,21 +107,21 @@ function getUserById(PDO $pdo, string $id)
     return $statement->fetch();
 }
 
-function updatePassword($pdo, $id, $password)
+function updatePassword(PDO $pdo, string $id, string $password): void
 {
     $sql = 'UPDATE `users` SET `password` = :password WHERE `id` = :id';
     $statement = $pdo->prepare($sql);
     $statement->execute(['id' => $id, 'password' => $password]);
 }
 
-function updateEmail($pdo, $id, $email)
+function updateEmail(PDO $pdo, string $id, string $email): void
 {
     $sql = 'UPDATE `users` SET `email` = :email WHERE `id` = :id';
     $statement = $pdo->prepare($sql);
     $statement->execute(['id' => $id, 'email' => $email]);
 }
 
-function deleteUser($pdo, $id)
+function deleteUser(PDO $pdo, string $id): void
 {
     $sql = 'DELETE FROM `users` WHERE `id` = :id';
     $statement = $pdo->prepare($sql);
