@@ -3,7 +3,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
 
 if ($_SESSION['role'] != 'admin') {
     setFlashMessage('danger', 'У Вас недостаточно прав');
-    redirect("/public/users.php");
+    redirect('/public/users.php');
     exit;
 }
 
@@ -29,5 +29,5 @@ setUserPhoto($pdo, $id, $photo);
 setSocialLinks($pdo, $id, $_POST['vk'], $_POST['tg'], $_POST['ig']);
 
 setFlashMessage('success', 'Пользователь успешно добавлен!');
-redirect("/public/users.php");
+redirect('/public/users.php');
 exit;

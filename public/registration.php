@@ -3,7 +3,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
 
 if (isset($_SESSION['email'])) {
     setFlashMessage('success', 'Вы уже зарегистрированы.');
-    redirect("/public/users.php");
+    redirect('/public/users.php');
     exit;
 }
 ?>

@@ -3,13 +3,13 @@ require $_SERVER['DOCUMENT_ROOT'] . '/app/core.php';
 
 if (!isset($_SESSION['email'])) {
     setFlashMessage('danger', 'Необходима авторизация.');
-    redirect("/public/authorization.php");
+    redirect('/public/authorization.php');
     exit;
 }
 
 if (empty($_GET)) {
     setFlashMessage('danger', 'Не выбран пользователь.');
-    redirect("/public/users.php");
+    redirect('/public/users.php');
     exit;
 }
 

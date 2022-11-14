@@ -5,13 +5,13 @@ $user = getUserById($pdo, $_GET['id']);
 
 if (($_SESSION['role'] != 'admin') && ($_SESSION['email'] != $user['email'])) {
     setFlashMessage('danger', 'У Вас недостаточно прав.');
-    redirect("/public/users.php");
+    redirect('/public/users.php');
     exit;
 }
 
 if (empty($_POST['password']) && ($user['email'] == $_POST['email'])) {
     setFlashMessage('danger', 'Информация не была обновлена');
-    redirect("/public/users.php");
+    redirect('/public/users.php');
     exit;
 }
 
